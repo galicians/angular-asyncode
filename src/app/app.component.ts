@@ -8,6 +8,23 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AppComponent  {
   name = 'Angular ' + VERSION.major;
+  loading: boolean;
+  data: object;
+  http: HttpClient;
 
-  constructor(private http: HttpClient) {}
+  constructor( http: HttpClient) {
+    // this.http = http;
+  }
+
+  makeRequest(): void {
+    this.loading = true;
+    this.http
+      .get('https://jsonplaceholder.typicode.com/posts/1')
+      .subscribe(data => {
+        this.data = data;
+        this.loading = false;
+      })
+
+  }
+
 }

@@ -1,4 +1,7 @@
 <h2>HTTP</h2>
-<p>
-  Start editing to see some magic happen :)
-</p>
+
+https://jsonplaceholder.typicode.com/
+
+<h2>Basic Request</h2>
+<button type="button" (click)="makeRequest()">Make Request</button> <div *ngIf="loading">loading...</div>
+<pre>{{data | json}}</pre>
