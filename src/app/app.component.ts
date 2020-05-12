@@ -9,7 +9,7 @@ import { HttpClient } from '@angular/common/http';
 export class AppComponent  {
   name = 'Angular ' + VERSION.major;
   loading: boolean;
-  data: object;
+  data: any;
   http: HttpClient;
 
   constructor( http: HttpClient) {
@@ -17,9 +17,13 @@ export class AppComponent  {
   }
 
   makeRequest(): void {
+    console.log('makeRequest')
     this.loading = true;
-    this.http.get('https://jsonplaceholder.typicode.com/posts/1')
+    this.http
+    // .get('./post.json')
+    .get('https://my-json-server.typicode.com/typicode/demo/posts/1')
       .subscribe(data => {
+        console.log('data',data)
         this.data = data;
         this.loading = false;
       })
