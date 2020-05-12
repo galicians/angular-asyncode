@@ -13,13 +13,12 @@ export class AppComponent  {
   http: HttpClient;
 
   constructor( http: HttpClient) {
-    // this.http = http;
+    this.http = http;
   }
 
   makeRequest(): void {
     this.loading = true;
-    this.http
-      .get('https://jsonplaceholder.typicode.com/posts/1')
+    this.http.get('https://jsonplaceholder.typicode.com/posts/1')
       .subscribe(data => {
         this.data = data;
         this.loading = false;
