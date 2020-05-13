@@ -15,7 +15,7 @@ export class AppComponent  {
   constructor( http: HttpClient) {
     this.http = http;
   }
-
+  
   makeRequest(): void {
     console.log('makeRequest')
     this.loading = true;
